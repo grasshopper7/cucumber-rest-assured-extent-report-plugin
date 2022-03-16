@@ -26,3 +26,24 @@ For more details refer to this [article](http://ghchirp.tech/4199/). Sample usag
 </plugin>
 ```
 Default configuration details and tips be modify them can be found in the [article](http://ghchirp.tech/4199/).
+
+***Pdf Report Images*** - 
+
+*Dashboard*
+
+![sample](https://raw.githubusercontent.com/grasshopper7/cucumber-rest-assured-extent-report-plugin/master/cuke-ra-db.png)
+
+*Tests*
+
+![sample](https://raw.githubusercontent.com/grasshopper7/cucumber-rest-assured-extent-report-plugin/master/cuke-ra-det.png)
+
+
+***Spark Report Images*** - 
+
+*Dashboard*
+
+![sample](https://raw.githubusercontent.com/grasshopper7/cucumber-rest-assured-extent-report-plugin/master/sp-cuke-ra-db.png)
+
+*Tests*
+
+![sample](https://raw.githubusercontent.com/grasshopper7/cucumber-rest-assured-extent-report-plugin/master/sp-cuke-ra-det.png)
