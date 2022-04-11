@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 2.0.0 (2022-4-11)
+
+* Additional request and response data
+* Reduced exception to message
+
 ## 1.1.1 (2022-3-15)
 
 * Updated pdf reporter version
