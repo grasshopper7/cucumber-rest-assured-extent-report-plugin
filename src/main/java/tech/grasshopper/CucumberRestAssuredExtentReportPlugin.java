@@ -138,7 +138,8 @@ public class CucumberRestAssuredExtentReportPlugin extends AbstractMojo {
 			Files.createDirectories(
 					Paths.get(reportProperties.getReportDirectory(), ReportProperties.EXTENT_REPORT_DATA_DIRECTORY));
 		} catch (IOException e) {
-			throw new CucumberRestAssuredExtentReportPluginException("Unable to create report attachments directory.", e);
+			throw new CucumberRestAssuredExtentReportPluginException("Unable to create report attachments directory.",
+					e);
 		}
 	}
 }
