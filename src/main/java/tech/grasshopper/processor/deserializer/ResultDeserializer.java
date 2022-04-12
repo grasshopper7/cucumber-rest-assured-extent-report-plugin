@@ -27,8 +27,13 @@ public class ResultDeserializer implements JsonDeserializer<Result> {
 			String exception = jsonObject.get("error_message").getAsString();
 
 			Matcher matcher = Pattern.compile("\\R\\tat").matcher(exception);
-			if (matcher.find())
-				result.setErrorMessage(exception.substring(0, matcher.start()));
+			if (matcher.find()) {
+				String msg = exception.substring(0, matcher.start());
+				
+				// Hack for exception parsing logic to work!!
+				msg = msg + System.lineSeparator();
+				result.setErrorMessage(msg);
+			}
 		}
 		return result;
 	}
