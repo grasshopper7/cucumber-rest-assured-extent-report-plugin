@@ -16,7 +16,7 @@
 
 		<gson.version>2.9.0</gson.version>
 		<extent.version>5.0.9</extent.version>
-		<pdfreporter.version>2.2.0</pdfreporter.version>
+		<pdfreporter.version>2.3.0</pdfreporter.version>
 		<allure-attach.version>2.1.0</allure-attach.version>
 		<lombok.version>1.18.18</lombok.version>
 		<annotation.version>1.0.1</annotation.version>
