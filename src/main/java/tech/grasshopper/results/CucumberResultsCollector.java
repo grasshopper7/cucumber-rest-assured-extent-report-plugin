@@ -20,6 +20,8 @@ import com.google.gson.JsonSyntaxException;
 import tech.grasshopper.exception.CucumberRestAssuredExtentReportPluginException;
 import tech.grasshopper.logging.ReportLogger;
 import tech.grasshopper.pojo.Feature;
+import tech.grasshopper.pojo.Result;
+import tech.grasshopper.processor.deserializer.ResultDeserializer;
 
 @Singleton
 public class CucumberResultsCollector {
@@ -33,7 +35,7 @@ public class CucumberResultsCollector {
 
 	public List<Feature> retrieveFeatures(String jsonDirectory) {
 		List<Path> jsonFilePaths = retrievePaths(jsonDirectory);
-		Gson gson = new GsonBuilder().create();
+		Gson gson = new GsonBuilder().registerTypeAdapter(Result.class, new ResultDeserializer()).create();
 
 		List<Feature> features = new ArrayList<>();
 		Feature[] parsedFeatures = null;
@@ -59,8 +61,9 @@ public class CucumberResultsCollector {
 		}
 
 		if (features.size() == 0)
-			throw new CucumberRestAssuredExtentReportPluginException("No Feature found in report. Stopping report creation. "
-					+ "Check the 'extentreport.cucumberJsonReportDirectory' plugin configuration.");
+			throw new CucumberRestAssuredExtentReportPluginException(
+					"No Feature found in report. Stopping report creation. "
+							+ "Check the 'extentreport.cucumberJsonReportDirectory' plugin configuration.");
 
 		if (!features.stream().flatMap(f -> f.getElements().stream())
 				.filter(s -> !s.getKeyword().equalsIgnoreCase("Background")
@@ -77,15 +80,24 @@ public class CucumberResultsCollector {
 		List<Path> jsonFilePaths = null;
 		try {
 			jsonFilePaths = Files.walk(Paths.get(jsonDirectory)).filter(Files::isRegularFile)
-					.filter(p -> p.toString().toLowerCase().endsWith(".json")).collect(Collectors.toList());
+					.filter(this::filterJsonFileName).collect(Collectors.toList());
 		} catch (IOException e) {
 			throw new CucumberRestAssuredExtentReportPluginException(
 					"Unable to navigate Cucumber Json report folders. Stopping report creation. "
 							+ "Check the 'extentreport.cucumberJsonReportDirectory' plugin configuration.");
 		}
 		if (jsonFilePaths == null || jsonFilePaths.size() == 0)
-			throw new CucumberRestAssuredExtentReportPluginException("No Cucumber Json Report found. Stopping report creation. "
-					+ "Check the 'extentreport.cucumberJsonReportDirectory' plugin configuration.");
+			throw new CucumberRestAssuredExtentReportPluginException(
+					"No Cucumber Json Report found. Stopping report creation. "
+							+ "Check the 'extentreport.cucumberJsonReportDirectory' plugin configuration.");
 		return jsonFilePaths;
+	}
+
+	private boolean filterJsonFileName(Path path) {
+		String pathStr = path.toString().toLowerCase();
+
+		if (pathStr.endsWith(".json") && !(pathStr.endsWith("-result.json") || pathStr.endsWith("-attachment.json")))
+			return true;
+		return false;
 	}
 }

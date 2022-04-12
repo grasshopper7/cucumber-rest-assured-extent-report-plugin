@@ -36,14 +36,6 @@ public class HttpDetails {
 			log.getHttpRequestData().addHttpContentFilesDisplay(details);
 			log.getHttpResponseData().addHttpContentFilesDisplay(details);
 
-			log.getHttpRequestData().addHeadersContentFileLink("Request", details);
-			log.getHttpRequestData().addCookiesContentFileLink("Request", details);
-			log.getHttpRequestData().addBodyContentFileLink("Request", details);
-
-			log.getHttpResponseData().addHeadersContentFileLink("Response", details);
-			log.getHttpResponseData().addCookiesContentFileLink("Response", details);
-			log.getHttpResponseData().addBodyContentFileLink("Response", details);
-
 			data.add(details);
 		}
 		return data;
