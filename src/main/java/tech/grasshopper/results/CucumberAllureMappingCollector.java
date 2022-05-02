@@ -28,7 +28,7 @@ public class CucumberAllureMappingCollector {
 			cucumberAllureMap = gson.fromJson(Files.newBufferedReader(Paths.get(mappingFile)), mapType);
 		} catch (IOException e) {
 			throw new CucumberRestAssuredExtentReportPluginException(
-					"Unable to access/parse cucumber to allure mapping json file. Stopping report creation. Check the 'extentreport.cucumberReportsDirectory' plugin configuration.");
+					"Unable to access/parse cucumber to allure mapping json file. Stopping report creation. Check the 'extentreport.cucumberAllureMappingFile' plugin configuration.");
 		}
 		return cucumberAllureMap;
 	}
