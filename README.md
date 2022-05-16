@@ -6,7 +6,7 @@ For more details refer to this [article](http://ghchirp.tech/4199/). Sample usag
 
 **Sample POM** - POM for [JUnit](https://github.com/grasshopper7/cucumber-rest-assured-junit-report/blob/master/pom.xml) and for [TestNG](https://github.com/grasshopper7/cucumber-rest-assured-testng-report/blob/master/pom.xml).
 
-**Maven Failsafe Plugin Configuration** - Plugin configurations for [JUnit](https://github.com/grasshopper7/cucumber-rest-assured-junit-report/blob/de9a4353481eaf1e0f48098cf782f497eb1b9fe5/pom.xml#L86) and [TestNG](https://github.com/grasshopper7/cucumber-rest-assured-testng-report/blob/de9a4353481eaf1e0f48098cf782f497eb1b9fe5/pom.xml#L74).
+**Maven Failsafe Plugin Configuration** - Plugin configurations for [JUnit](https://github.com/grasshopper7/cucumber-rest-assured-junit-report/blob/de9a4353481eaf1e0f48098cf782f497eb1b9fe5/pom.xml#L86) and [TestNG](https://github.com/grasshopper7/cucumber-rest-assured-testng-report/blob/370d3ce1e4a89d283fc874bcc86fc2c58df4de58/pom.xml#L61).
 
 **Report Plugin** -
 ```
