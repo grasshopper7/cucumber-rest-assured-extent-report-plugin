@@ -9,7 +9,7 @@
 	<packaging>maven-plugin</packaging>
 
 	<name>cucumber-rest-assured-extent-report-plugin</name>
-	<url>https://ghchirp.tech/3791</url>
+	<url>https://ghchirp.online/3791</url>
 	<description>Spark Extent Report generation for REST Assured API
 		Testing run with Cucumber-JVM
 	</description>
