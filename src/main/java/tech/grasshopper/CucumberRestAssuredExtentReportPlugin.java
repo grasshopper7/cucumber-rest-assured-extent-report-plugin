@@ -34,8 +34,8 @@ public class CucumberRestAssuredExtentReportPlugin extends AbstractMojo {
 	@Parameter(property = "extentreport.allureResultsDirectory", defaultValue = ReportProperties.ALLURE_RESULTS_DIRECTORY)
 	private String allureResultsDirectory;
 
-	@Parameter(property = "extentreport.cucumberAllureMappingFile", defaultValue = ReportProperties.CUCUMBER_ALLURE_MAPPING_FILE)
-	private String cucumberAllureMappingFile;
+	@Parameter(property = "extentreport.cucumberAllureMappingFile")
+	private List<String> cucumberAllureMappingFiles;
 
 	@Parameter(property = "extentreport.reportDirectory", defaultValue = ReportProperties.REPORT_DIRECTORY)
 	private String reportDirectory;
@@ -94,7 +94,11 @@ public class CucumberRestAssuredExtentReportPlugin extends AbstractMojo {
 			logger.initializeLogger(getLog());
 			logger.info("STARTING EXTENT REPORT GENERATION");
 
+			if (cucumberAllureMappingFiles == null || cucumberAllureMappingFiles.isEmpty())
+				cucumberAllureMappingFiles = ReportProperties.CUCUMBER_ALLURE_MAPPING_FILE;
+
 			setReportProperties();
+
 			if (!reportProperties.isSparkGenerate() && !reportProperties.isPdfGenerate()) {
 				logger.info("STOPPING EXTENT REPORT GENERATION - No report type selected.");
 				return;
@@ -105,7 +109,7 @@ public class CucumberRestAssuredExtentReportPlugin extends AbstractMojo {
 					.retrieveFeatures(reportProperties.getCucumberReportsDirectory());
 			List<Result> results = allureResultsCollector.retrieveResults(reportProperties.getAllureResultsDirectory());
 			List<HttpDetails> httpDetailsData = httpDataProcessor.process(results);
-			Map<String, String> mapping = cucumberAllureMappingCollector.retrieveMapping(cucumberAllureMappingFile);
+			Map<String, String> mapping = cucumberAllureMappingCollector.retrieveMapping(cucumberAllureMappingFiles);
 
 			cucumberAllureDataProcessor.process(features, httpDetailsData, mapping);
 
@@ -124,6 +128,7 @@ public class CucumberRestAssuredExtentReportPlugin extends AbstractMojo {
 		reportProperties.setAllureResultsDirectory(allureResultsDirectory);
 		reportProperties.setReportDirectory(reportDirectory, reportDirectoryTimeStamp);
 		reportProperties.setSystemInfoFilePath(systemInfoFilePath);
+		reportProperties.setCucumberAllureMappinFiles(cucumberAllureMappingFiles);
 
 		reportProperties.setSparkGenerate(sparkGenerate);
 		reportProperties.setSparkConfigFilePath(sparkConfigFilePath);

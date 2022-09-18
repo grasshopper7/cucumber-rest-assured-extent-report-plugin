@@ -2,6 +2,8 @@ package tech.grasshopper.properties;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -17,7 +19,7 @@ public class ReportProperties {
 
 	private String cucumberReportsDirectory;
 	private String allureResultsDirectory;
-	private String cucumberAllureMappinFile;
+	private List<String> cucumberAllureMappinFiles;
 
 	@Setter(value = AccessLevel.NONE)
 	private String reportDirectory;
@@ -38,7 +40,7 @@ public class ReportProperties {
 
 	public static final String CUCUMBER_REPORTS_DIRECTORY = "target";
 	public static final String ALLURE_RESULTS_DIRECTORY = "target/allure-results";
-	public static final String CUCUMBER_ALLURE_MAPPING_FILE = "target/cucumber-allure.json";
+	public static final List<String> CUCUMBER_ALLURE_MAPPING_FILE = Arrays.asList("target/cucumber-allure.json");
 	public static final String REPORT_DIRECTORY = "report";
 	public static final String REPORT_DIRECTORY_TIMESTAMP = "dd MM yyyy HH mm ss";
 	public static final String REPORT_SYSTEM_INFO_FILE = "src/test/resources/systeminfo.properties";
