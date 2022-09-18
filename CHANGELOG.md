@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 2.3.0 (2022-9-18)
+
+* Added fix for multiple runners, mapping files not parsing properly
+
 ## 2.2.0 (2022-5-11)
 
 * Updated pdf reporter version
