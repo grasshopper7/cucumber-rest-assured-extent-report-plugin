@@ -13,7 +13,7 @@ For more details refer to this [article](http://ghchirp.online/4199/). Sample us
 <plugin>
   <groupId>tech.grasshopper</groupId>
   <artifactId>cucumber-rest-assured-extent-report-plugin</artifactId>
-  <version>2.2.0</version>
+  <version>2.3.0</version>
   <executions>
     <execution>
       <id>report</id>
