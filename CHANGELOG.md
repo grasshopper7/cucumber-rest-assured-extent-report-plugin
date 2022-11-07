@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 2.3.1 (2022-11-7)
+
+* Updated cucumber-extent generator version
+
 ## 2.3.0 (2022-9-18)
 
 * Added fix for multiple runners, mapping files not parsing properly
