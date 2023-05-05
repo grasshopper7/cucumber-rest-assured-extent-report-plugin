@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 2.4.0 (2023-5-5)
+
+* Blacklist request and response headers
+
 ## 2.3.1 (2022-11-7)
 
 * Updated cucumber-extent generator version

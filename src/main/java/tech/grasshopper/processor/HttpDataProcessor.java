@@ -31,7 +31,9 @@ public class HttpDataProcessor {
 
 		attachmentProcessor = AttachmentProcessor.builder()
 				.allureResultsDirectory(reportProperties.getAllureResultsDirectory())
-				.reportDirectory(reportProperties.getReportDirectory()).build();
+				.reportDirectory(reportProperties.getReportDirectory())
+				.requestHeadersBlacklist(reportProperties.getRequestHeadersBlacklist())
+				.responseHeadersBlacklist(reportProperties.getResponseHeadersBlacklist()).build();
 
 		return results.stream().map(r -> transformResult(r)).collect(Collectors.toList());
 	}

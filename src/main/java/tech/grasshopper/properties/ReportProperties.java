@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -20,6 +21,9 @@ public class ReportProperties {
 	private String cucumberReportsDirectory;
 	private String allureResultsDirectory;
 	private List<String> cucumberAllureMappinFiles;
+
+	private Set<String> requestHeadersBlacklist;
+	private Set<String> responseHeadersBlacklist;
 
 	@Setter(value = AccessLevel.NONE)
 	private String reportDirectory;

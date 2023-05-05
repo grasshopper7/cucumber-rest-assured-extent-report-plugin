@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.inject.Inject;
 
@@ -36,6 +37,12 @@ public class CucumberRestAssuredExtentReportPlugin extends AbstractMojo {
 
 	@Parameter(property = "extentreport.cucumberAllureMappingFile")
 	private List<String> cucumberAllureMappingFiles;
+
+	@Parameter(property = "extentreport.requestHeadersBlacklist")
+	private Set<String> requestHeadersBlacklist;
+
+	@Parameter(property = "extentreport.responseHeadersBlacklist")
+	private Set<String> responseHeadersBlacklist;
 
 	@Parameter(property = "extentreport.reportDirectory", defaultValue = ReportProperties.REPORT_DIRECTORY)
 	private String reportDirectory;
@@ -129,6 +136,9 @@ public class CucumberRestAssuredExtentReportPlugin extends AbstractMojo {
 		reportProperties.setReportDirectory(reportDirectory, reportDirectoryTimeStamp);
 		reportProperties.setSystemInfoFilePath(systemInfoFilePath);
 		reportProperties.setCucumberAllureMappinFiles(cucumberAllureMappingFiles);
+
+		reportProperties.setRequestHeadersBlacklist(requestHeadersBlacklist);
+		reportProperties.setResponseHeadersBlacklist(responseHeadersBlacklist);
 
 		reportProperties.setSparkGenerate(sparkGenerate);
 		reportProperties.setSparkConfigFilePath(sparkConfigFilePath);
